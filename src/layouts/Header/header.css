@@ -1,0 +1,238 @@
+header {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.header-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  background: transparent;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.6755077030812324) 0%,
+    rgba(0, 0, 0, 0.0984768907563025) 79%,
+    rgba(27, 27, 27, 0) 100%
+  );
+}
+
+.logo-nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 0 75px;
+}
+
+.logo {
+  margin: 0 30px 0 10px;
+  width: 135px;
+  height: 40px;
+}
+
+.navigation {
+  display: flex;
+}
+
+.navigation > li {
+  margin: 0 10px;
+  list-style: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.navigation > li > a {
+  color: #ffffff;
+}
+
+.navigation > li > a:hover {
+  color: rgb(229, 229, 229, 0.5);
+  transition: color 0.3s ease-in-out;
+}
+
+.navigation > li > a:link,
+.navigation > li > a:visited,
+.navigation > li > a:active {
+  text-decoration: none;
+}
+
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 75px 0 0;
+}
+
+.search {
+  margin: 0 35px 0 0;
+  color: #fff;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.notification {
+  margin: 0 35px 0 0;
+  color: #fff;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.profile > img {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.banner {
+  position: absolute;
+  margin: 0 0 100px 50px;
+  left: 0;
+  bottom: 0;
+}
+
+.banner-title {
+  color: #fff;
+  font-size: 4.5rem;
+  text-transform: uppercase;
+  text-shadow: 1px 2px 7px rgb(0, 0, 0);
+}
+
+.banner-text {
+  margin: 5px 0 0 0;
+  width: 45rem;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: bold;
+  line-height: 1.4;
+  text-shadow: 1px 1px 7px rgb(0, 0, 0);
+}
+
+.banner-btn {
+  display: flex;
+  margin: 25px 0 0 0;
+}
+
+.play-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px 0 0;
+  width: 10.938rem;
+  height: 4.063rem;
+  border: none;
+  border-radius: 5px;
+  color: #000;
+  background-color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 1.625rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+.play-btn:hover {
+  background-color: rgb(255, 255, 255, 0.8);
+}
+
+.play-btn > div {
+  margin: 0 2.5px 0 0;
+}
+
+.play-btn > span {
+  margin: 0 0 0 2.5px;
+}
+
+.info-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14.063rem;
+  height: 4.063rem;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: rgba(109, 109, 110, 0.7);
+  font-weight: bold;
+  font-size: 1.625rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+.info-btn:hover {
+  background-color: rgba(109, 109, 110, 0.5);
+}
+
+.info-btn > div {
+  margin: 0 2.5px 0 0;
+}
+
+.info-btn > span {
+  margin: 0 0 0 2.5px;
+}
+
+.actions-maturity-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 0 0 100px 0;
+}
+
+.actions-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #fff;
+  border: 1px solid white;
+  border-radius: 500px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.actions-btn:hover {
+  color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgb(255, 255, 255, 0.1);
+  background-color: rgb(255, 255, 255, 0.1);
+}
+
+.maturity-rating {
+  margin: 0 0 0 10px;
+  padding: 0.5rem 3.5rem 0.5rem 0.8rem;
+  height: 3rem;
+  color: #fff;
+  border: solid 3px #dcdcdc;
+  border-style: none none none solid;
+  background-color: rgba(51, 51, 51, 0.6);
+  font-size: 1.5rem;
+  letter-spacing: 0.15rem;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 992px) {
+  html {
+    font-size: 81.25%;
+  }
+
+  .navigation {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  html {
+    font-size: 71.875%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 62.5%;
+  }
+}
