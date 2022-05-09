@@ -8,6 +8,7 @@ function App() {
       <Header></Header>
       <main>
         <Row title={'Top'}></Row>
+
         <Row title={'Terror'}></Row>
         <Row title={'Original'}></Row>
       </main>
