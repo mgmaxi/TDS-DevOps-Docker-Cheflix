@@ -4,10 +4,10 @@ import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import Card from '../Card/Card';
 import axios from '../../axios';
 
-const Row = ({ title, fetchUrl, genres }) => {
+const Row = ({ title, fetchUrl, isHighRow }) => {
   const [movies, setMovies] = useState([]);
   const [slideNumber, setSliderNumber] = useState(0);
-  const maxIndexSlider = 3;
+  const maxIndexSlider = 14;
   const rowRef = useRef();
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const Row = ({ title, fetchUrl, genres }) => {
   const handleClick = (direction) => {
     let distance = rowRef.current.getBoundingClientRect().x - 50;
     let cardWidth = 307;
-    let cardPerPage = 5;
+    let cardPerPage = 1;
     if (direction === 'left' && slideNumber > 0) {
       rowRef.current.style.transform = `translateX(${
         cardWidth * cardPerPage + distance
@@ -50,7 +50,7 @@ const Row = ({ title, fetchUrl, genres }) => {
         />
         <div className="cards-container" ref={rowRef}>
           {movies.map((movie) => (
-            <Card key={movie.id} movie={movie} genres={genres} />
+            <Card key={movie.id} movie={movie} isHighRow={isHighRow} />
           ))}
         </div>
         <IoIosArrowForward

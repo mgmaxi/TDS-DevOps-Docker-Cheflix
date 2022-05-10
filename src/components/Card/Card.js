@@ -4,30 +4,45 @@ import { FaPlayCircle } from 'react-icons/fa';
 import { AiOutlineLike, AiOutlineDislike } from 'react-icons/ai';
 import { IoIosAddCircleOutline } from 'react-icons/io';
 
-const Card = ({ movie, genres }) => {
+const Card = ({ movie, isHighRow }) => {
   const baseUrl = 'https://image.tmdb.org/t/p/original';
+
+  let movieReleaseDate = new Date(movie.release_date);
 
   return (
     <>
-      <div className="card-container">
+      <div
+        className={`${isHighRow ? 'card-container-high' : 'card-container'}`}
+      >
         <img
-          src={baseUrl + movie.backdrop_path}
+          src={`${baseUrl}${
+            isHighRow ? movie.poster_path : movie.backdrop_path
+          }`}
           alt={movie.title}
-          className="card-image"
+          className={` ${isHighRow ? 'card-image-high' : 'card-image'}`}
         />
-        <div className="card-info">
-          <div className="icons">
-            <FaPlayCircle />
-            <AiOutlineLike />
-            <AiOutlineDislike />
-            <IoIosAddCircleOutline />
-          </div>
+        <div className={`${isHighRow ? 'hide' : 'card-info'}`}>
+          <div className="movie-title">{movie.title}</div>
           <div className="specs">
-            <div className="year">{movie.release_date}</div>
-            <div className="maturity">+16</div>
-            <div className="duration">1 hour 25 mins</div>
+            <div className="specs-info">
+              <div className="specs-year">{movieReleaseDate.getFullYear()}</div>
+              <div
+                className={`${
+                  Math.floor(movie.vote_average) >= 7
+                    ? 'specs-score'
+                    : 'specs-score-low'
+                }`}
+              >
+                {movie.vote_average} Score
+              </div>
+            </div>
+            <div className="specs-icons">
+              <FaPlayCircle className="specs-icon" />
+              <AiOutlineLike className="specs-icon" />
+              <AiOutlineDislike className="specs-icon" />
+              <IoIosAddCircleOutline className="specs-icon" />
+            </div>
           </div>
-          <div className="genre"></div>
         </div>
       </div>
     </>

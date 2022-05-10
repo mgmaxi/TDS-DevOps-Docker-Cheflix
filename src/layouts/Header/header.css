@@ -5,17 +5,24 @@ header {
 }
 
 .header-main {
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   height: 100px;
-  background: transparent;
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0.6755077030812324) 0%,
     rgba(0, 0, 0, 0.0984768907563025) 79%,
     rgba(27, 27, 27, 0) 100%
   );
+  z-index: 99999;
+  transition: all 0.5s ease-in;
+}
+
+.header-main-scroll {
+  background-color: rgb(0, 0, 0, 0.9);
 }
 
 .logo-nav-container {
@@ -94,19 +101,46 @@ header {
 
 .banner-title {
   color: #fff;
-  font-size: 4.5rem;
+  font-size: 4rem;
   text-transform: uppercase;
   text-shadow: 1px 2px 7px rgb(0, 0, 0);
+}
+
+.banner-specs-info {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.banner-specs-score {
+  color: #46d369;
+  font-size: 22px;
+  font-weight: 900;
+  text-shadow: 1px 1px 5px rgb(0, 0, 0);
+}
+
+.banner-specs-score-low {
+  color: #ce0917;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.banner-specs-year {
+  margin: 0 0 0 20px;
+  font-size: 1.8rem;
+  color: #fff;
+  font-weight: bold;
 }
 
 .banner-text {
   margin: 5px 0 0 0;
   width: 45rem;
   color: #fff;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: bold;
   line-height: 1.4;
   text-shadow: 1px 1px 7px rgb(0, 0, 0);
+  z-index: 9;
 }
 
 .banner-btn {
@@ -119,8 +153,8 @@ header {
   justify-content: center;
   align-items: center;
   margin: 0 10px 0 0;
-  width: 10.938rem;
-  height: 4.063rem;
+  width: 10.038rem;
+  height: 3.863rem;
   border: none;
   border-radius: 5px;
   color: #000;
@@ -128,6 +162,7 @@ header {
   font-weight: bold;
   font-size: 1.625rem;
   cursor: pointer;
+  z-index: 9;
   transition: all 0.3s ease-in;
 }
 
@@ -147,8 +182,8 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 14.063rem;
-  height: 4.063rem;
+  width: 13.038rem;
+  height: 3.863rem;
   border: none;
   border-radius: 5px;
   color: #fff;
@@ -156,6 +191,7 @@ header {
   font-weight: bold;
   font-size: 1.625rem;
   cursor: pointer;
+  z-index: 9;
   transition: all 0.3s ease-in;
 }
 
@@ -193,6 +229,7 @@ header {
   font-size: 1.5rem;
   cursor: pointer;
   transition: all 0.2s ease-in;
+  z-index: 9;
 }
 
 .actions-btn:hover {
@@ -211,6 +248,23 @@ header {
   background-color: rgba(51, 51, 51, 0.6);
   font-size: 1.5rem;
   letter-spacing: 0.15rem;
+  z-index: 9;
+}
+
+.banner-fade-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 14.4rem;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 42%,
+    rgba(14, 14, 14, 0.32) 62%,
+    rgba(20, 20, 20, 0.92) 92%,
+    rgba(20, 20, 20, 1) 100%
+  );
 }
 
 /* Media Queries */
@@ -234,5 +288,12 @@ header {
 @media only screen and (max-width: 600px) {
   html {
     font-size: 62.5%;
+  }
+  .banner-title {
+    width: 35rem;
+  }
+
+  .banner-text {
+    width: 35rem;
   }
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './header.css';
 import cheflixLogo from '../../assets/images/logoCheflix.png';
 import avatar from '../../assets/images/avatar.png';
@@ -7,19 +7,53 @@ import { FaBell } from 'react-icons/fa';
 import { FaPlay } from 'react-icons/fa';
 import { FiInfo } from 'react-icons/fi';
 import { MdReplay } from 'react-icons/md';
+import axios from '../../axios';
+import requests from '../../request';
 
 const Header = () => {
+  const [movie, setMovie] = useState([]);
+  const [showHeader, setShowHeader] = useState();
+  const baseUrl = 'https://image.tmdb.org/t/p/original';
+
+  let movieReleaseDate = new Date(movie?.first_air_date);
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        setShowHeader(true);
+      } else {
+        setShowHeader(false);
+      }
+    });
+    /* return () => {
+      window.removeEventListener('scroll');
+    }; */
+
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(requests.fetchNetflixOriginals);
+        setMovie(
+          response.data.results[
+            Math.floor(Math.random() * response.data.results.length - 1)
+          ]
+        );
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <>
       <header
         style={{
           backgroundSize: 'cover',
-          backgroundImage:
-            'url("https://occ-0-5397-1740.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABX9XFMrpBHxQqgoGuyka_e6XM_7mZ4GJMzU4Mggydc4nE8I6FlZVCENjGwPVlzB792PghkSWW7ZcjBKKxrgk5ih1T2Ex6lxVpBAc.webp?r=3d5")',
+          backgroundImage: `url(${baseUrl + movie?.backdrop_path})`,
           backgroundPosition: 'center center',
         }}
       >
-        <div className="header-main">
+        <div className={`header-main ${showHeader && 'header-main-scroll'}`}>
           <div className="logo-nav-container">
             <img src={cheflixLogo} alt="Logo" className="logo" />
             <ul className="navigation">
@@ -47,16 +81,24 @@ const Header = () => {
           </div>
         </div>
         <div className="banner">
-          <h2 className="banner-title">Drag me to..</h2>
-          <p className="banner-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem
-            culpa mollitia necessitatibus delectus accusamus magni praesentium
-            officia, fugit id, quaerat olor sit amet consectetur adipisicing
-            elit. Quidem culpa mollitia necessitatibus delectus accusamus magni
-            praesentium officia, fugit id, quaerat commodi nobis neque quisquam
-            sunt accusantium deleniti ab doloremque deserunt! Asperiores
-            doloribus accusamus tenetur qui cum
-          </p>
+          <h2 className="banner-title">
+            {movie?.title || movie?.name || movie.original_name}
+          </h2>
+          <div className="banner-specs-info">
+            <div
+              className={`${
+                Math.floor(movie?.vote_average) >= 7
+                  ? 'banner-specs-score'
+                  : 'banner-specs-score-low'
+              }`}
+            >
+              {movie?.vote_average + ' Score'}
+            </div>
+            <div className="banner-specs-year">
+              {movieReleaseDate.getFullYear()}
+            </div>
+          </div>
+          <p className="banner-text">{movie?.overview}</p>
           <div className="banner-btn">
             <button className="play-btn">
               <FaPlay />
@@ -74,6 +116,7 @@ const Header = () => {
           </div>
           <div className="maturity-rating">16+</div>
         </div>
+        <div className="banner-fade-bottom"></div>
       </header>
     </>
   );
