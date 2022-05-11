@@ -10,7 +10,8 @@ const requests = {
   fetchHorrorMovies: `/discover/movie?api_key=${API_KEY}&with_genres=27`,
   fetchRomanceMovies: `/discover/movie?api_key=${API_KEY}&with_genres=10749`,
   fetchDocumantaries: `/discover/movie?api_key=${API_KEY}&with_genres=99`,
-  fetchGenres: `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`,
+  fetchBestMovies2022: `/discover/movie?api_key=${API_KEY}&primary_release_year=2022&sort_by=vote_average.desc`,
+  fetchPopularKids: `/discover/movie?api_key=${API_KEY}&certification_country=US&certification.lte=G&sort_by=popularity.desc`,
 };
 
 export default requests;

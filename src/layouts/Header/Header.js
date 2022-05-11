@@ -110,11 +110,11 @@ const Header = () => {
             </button>
           </div>
         </div>
-        <div className="actions-maturity-container">
+        <div className="actions-language-container">
           <div className="actions-btn">
             <MdReplay />
           </div>
-          <div className="maturity-rating">16+</div>
+          <div className="language">{movie.original_language}</div>
         </div>
         <div className="banner-fade-bottom"></div>
       </header>

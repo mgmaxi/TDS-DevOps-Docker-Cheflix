@@ -7,35 +7,29 @@ import requests from './request';
 function App() {
   return (
     <div className="App">
-      <Header></Header>
+      <Header />
       <main>
-        <Row title={'Up Coming'} fetchUrl={requests.fetchUpComing}></Row>
         <Row
-          title={'Netflix Originals'}
+          title={'NETFLIX ORIGINALS'}
           fetchUrl={requests.fetchNetflixOriginals}
           isHighRow
         ></Row>
+        <Row title={'Up Coming'} fetchUrl={requests.fetchUpComing}></Row>
         <Row title={'Trending'} fetchUrl={requests.fetchTrending}></Row>
         <Row title={'Top Rated'} fetchUrl={requests.fetchTopRated}></Row>
-        <Row
-          title={'Action Movies'}
-          fetchUrl={requests.fetchActionMovies}
-        ></Row>
-        <Row
-          title={'Comedy Movies'}
-          fetchUrl={requests.fetchComedyMovies}
-        ></Row>
-        <Row
-          title={'Horror Movies'}
-          fetchUrl={requests.fetchHorrorMovies}
-        ></Row>
-        <Row
-          title={'Romance Movies'}
-          fetchUrl={requests.fetchRomanceMovies}
-        ></Row>
+        <Row title={'Kids'} fetchUrl={requests.fetchPopularKids}></Row>
+        <Row title={'Action'} fetchUrl={requests.fetchActionMovies}></Row>
+        <Row title={'Comedy'} fetchUrl={requests.fetchComedyMovies}></Row>
+        <Row title={'Horror'} fetchUrl={requests.fetchHorrorMovies}></Row>
+        <Row title={'Romance'} fetchUrl={requests.fetchRomanceMovies}></Row>
         <Row
           title={'Documantaries'}
           fetchUrl={requests.fetchDocumantaries}
+        ></Row>
+        <Row
+          title={'Best of 2022'}
+          fetchUrl={requests.fetchBestMovies2022}
+          isHighRow
         ></Row>
       </main>
     </div>
@@ -43,4 +37,3 @@ function App() {
 }
 
 export default App;
-
