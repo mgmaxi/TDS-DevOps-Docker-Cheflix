@@ -1,7 +1,5 @@
-# <b> CHEFLIX</b>
-
 <p align="center">
-<img src="https://github.com/mgmaxi/cheflix/blob/main/src/assets/logoCheflix.png" width="275" height="275" >
+<img src="https://raw.githubusercontent.com/mgmaxi/cheflix/main/src/assets/images/logoCheflix.png" width="270" height="80" >
 </p>
 
 ## 📄 <b> About the Application </b>
@@ -15,11 +13,11 @@ Cheflix is a Netflix clone that fetch data from [The Movie Database](https://www
 
 ## 🚀 <b> Deploy</b>
 
-- [Deploy](che-flix.web.app)
+- [Deploy](https://che-flix.web.app)
 
 ## 📷 <b> Preview </b>
 
 <p align="center">
-<img src="https://github.com/mgmaxi/cheflix/blob/main/public/preview.png" width="680" height="1050" >
+<img src="https://github.com/mgmaxi/cheflix/blob/main/public/preview.png" width="951" height="1098" >
 </p>
 
