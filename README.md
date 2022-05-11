@@ -18,6 +18,6 @@ Cheflix is a Netflix clone that fetch data from [The Movie Database](https://www
 ## 📷 <b> Preview </b>
 
 <p align="center">
-<img src="https://github.com/mgmaxi/cheflix/blob/main/public/preview.png" width="1024" height="1280" >
+<img src="https://github.com/mgmaxi/cheflix/blob/main/public/preview.png" width="951" height="1098" >
 </p>
 
