@@ -1,0 +1,42 @@
+.row {
+  margin-top: 5px;
+}
+
+.title {
+  margin: 10px 0 10px 50px;
+  color: #fff;
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.sliderArrow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 50px;
+  height: 100%;
+  color: #fff;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+
+.cards-container {
+  display: flex;
+  margin: 0 50px 0 50px;
+  width: max-content;
+  transform: translate(0px);
+  transition: all 1s ease;
+}

@@ -1,27 +1,23 @@
 import React from 'react';
-import './card.css';
+import './card-my-list.css';
 import { FaPlayCircle } from 'react-icons/fa';
 import { AiOutlineLike, AiOutlineDislike } from 'react-icons/ai';
-import { IoIosAddCircleOutline } from 'react-icons/io';
+import { BsCheckCircle } from 'react-icons/bs';
 
-const Card = ({ movie, isHighRow, onAddToMyList }) => {
+const CardMyList = ({ movie, onDeleteFromMyList }) => {
   const baseUrl = 'https://image.tmdb.org/t/p/original';
 
   let movieReleaseDate = new Date(movie.release_date);
 
   return (
     <>
-      <div
-        className={`${isHighRow ? 'card-container-high' : 'card-container'}`}
-      >
+      <div className="card-container">
         <img
-          src={`${baseUrl}${
-            isHighRow ? movie.poster_path : movie.backdrop_path
-          }`}
+          src={`${baseUrl}${movie.backdrop_path}`}
           alt={movie.title}
-          className={` ${isHighRow ? 'card-image-high' : 'card-image'}`}
+          className="card-image"
         />
-        <div className={`${isHighRow ? 'hide' : 'card-info'}`}>
+        <div className="card-info">
           <div className="movie-title">{movie.title}</div>
           <div className="specs">
             <div className="specs-info">
@@ -40,9 +36,9 @@ const Card = ({ movie, isHighRow, onAddToMyList }) => {
               <FaPlayCircle className="specs-icon" />
               <AiOutlineLike className="specs-icon" />
               <AiOutlineDislike className="specs-icon" />
-              <IoIosAddCircleOutline
+              <BsCheckCircle
                 className="specs-icon"
-                onClick={() => onAddToMyList(movie)}
+                onClick={() => onDeleteFromMyList(movie)}
               />
             </div>
           </div>
@@ -52,4 +48,4 @@ const Card = ({ movie, isHighRow, onAddToMyList }) => {
   );
 };
 
-export default Card;
+export default CardMyList;

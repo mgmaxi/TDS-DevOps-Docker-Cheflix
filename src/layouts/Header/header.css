@@ -33,7 +33,7 @@ header {
 }
 
 .logo {
-  margin: 0 30px 0 10px;
+  margin: 0 30px 0 0;
   width: 135px;
   height: 40px;
 }
@@ -72,16 +72,16 @@ header {
 }
 
 .search {
-  margin: 0 35px 0 0;
+  margin: 0 25px 0 0;
   color: #fff;
-  font-size: 25px;
+  font-size: 20px;
   cursor: pointer;
 }
 
 .notification {
-  margin: 0 35px 0 0;
+  margin: 0 25px 0 0;
   color: #fff;
-  font-size: 25px;
+  font-size: 20px;
   cursor: pointer;
 }
 
@@ -100,15 +100,16 @@ header {
 }
 
 .banner-title {
+  width: 65rem;
   color: #fff;
-  font-size: 4rem;
+  font-size: 3rem;
   text-transform: uppercase;
   text-shadow: 1px 2px 7px rgb(0, 0, 0);
 }
 
 .banner-specs-info {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -127,7 +128,7 @@ header {
 
 .banner-specs-year {
   margin: 0 0 0 20px;
-  font-size: 1.8rem;
+  font-size: 1.35rem;
   color: #fff;
   font-weight: bold;
 }
@@ -136,7 +137,7 @@ header {
   margin: 5px 0 0 0;
   width: 45rem;
   color: #fff;
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: bold;
   line-height: 1.4;
   text-shadow: 1px 1px 7px rgb(0, 0, 0);
@@ -153,14 +154,14 @@ header {
   justify-content: center;
   align-items: center;
   margin: 0 10px 0 0;
-  width: 10.038rem;
-  height: 3.863rem;
+  width: 8.038rem;
+  height: 3.363rem;
   border: none;
   border-radius: 5px;
   color: #000;
   background-color: rgb(255, 255, 255);
   font-weight: bold;
-  font-size: 1.625rem;
+  font-size: 1.325rem;
   cursor: pointer;
   z-index: 9;
   transition: all 0.3s ease-in;
@@ -182,14 +183,14 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 13.038rem;
-  height: 3.863rem;
+  width: 11.038rem;
+  height: 3.363rem;
   border: none;
   border-radius: 5px;
   color: #fff;
   background-color: rgba(109, 109, 110, 0.7);
   font-weight: bold;
-  font-size: 1.625rem;
+  font-size: 1.325rem;
   cursor: pointer;
   z-index: 9;
   transition: all 0.3s ease-in;

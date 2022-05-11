@@ -25,9 +25,6 @@ const Header = () => {
         setShowHeader(false);
       }
     });
-    /* return () => {
-      window.removeEventListener('scroll');
-    }; */
 
     const fetchData = async () => {
       try {

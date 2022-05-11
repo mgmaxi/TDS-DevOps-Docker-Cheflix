@@ -1,26 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
-import './row.css';
+import React, { useState, useRef } from 'react';
+import './row-my-list.css';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-import Card from '../Card/Card';
-import axios from '../../axios';
+import CardMyList from '../CardMyList/CardMyList';
 
-const Row = ({ title, fetchUrl, isHighRow, onAddToMyList }) => {
-  const [movies, setMovies] = useState([]);
+const RowMyList = ({ title, myList, onDeleteFromMyList }) => {
   const [slideNumber, setSliderNumber] = useState(0);
   const maxIndexSlider = 14;
   const rowRef = useRef();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(fetchUrl);
-        setMovies(response.data.results);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchData();
-  }, [fetchUrl]);
 
   const handleClick = (direction) => {
     let distance = rowRef.current.getBoundingClientRect().x - 50;
@@ -39,6 +25,7 @@ const Row = ({ title, fetchUrl, isHighRow, onAddToMyList }) => {
       setSliderNumber(slideNumber + 1);
     }
   };
+
   return (
     <div className="row">
       <h2 className="title">{title}</h2>
@@ -49,12 +36,11 @@ const Row = ({ title, fetchUrl, isHighRow, onAddToMyList }) => {
           style={{ display: slideNumber === 0 && 'none' }}
         />
         <div className="cards-container" ref={rowRef}>
-          {movies.map((movie) => (
-            <Card
+          {myList.map((movie) => (
+            <CardMyList
               key={movie.id}
               movie={movie}
-              isHighRow={isHighRow}
-              onAddToMyList={() => onAddToMyList(movie)}
+              onDeleteFromMyList={() => onDeleteFromMyList(movie)}
             />
           ))}
         </div>
@@ -70,4 +56,4 @@ const Row = ({ title, fetchUrl, isHighRow, onAddToMyList }) => {
   );
 };
 
-export default Row;
+export default RowMyList;
