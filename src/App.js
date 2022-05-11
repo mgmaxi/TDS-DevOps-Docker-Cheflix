@@ -19,17 +19,12 @@ function App() {
         <Row title={'Top Rated'} fetchUrl={requests.fetchTopRated}></Row>
         <Row title={'Kids'} fetchUrl={requests.fetchPopularKids}></Row>
         <Row title={'Action'} fetchUrl={requests.fetchActionMovies}></Row>
-        <Row title={'Comedy'} fetchUrl={requests.fetchComedyMovies}></Row>
         <Row title={'Horror'} fetchUrl={requests.fetchHorrorMovies}></Row>
         <Row title={'Romance'} fetchUrl={requests.fetchRomanceMovies}></Row>
+        <Row title={'Comedy'} fetchUrl={requests.fetchComedyMovies}></Row>
         <Row
           title={'Documantaries'}
           fetchUrl={requests.fetchDocumantaries}
-        ></Row>
-        <Row
-          title={'Best of 2022'}
-          fetchUrl={requests.fetchBestMovies2022}
-          isHighRow
         ></Row>
       </main>
     </div>
