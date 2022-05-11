@@ -1,3 +1,7 @@
+.App {
+  width: 100vw;
+}
+
 main {
   width: 100%;
   padding: 25px 0 25px 0;

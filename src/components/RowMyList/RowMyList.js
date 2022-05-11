@@ -9,7 +9,7 @@ const RowMyList = ({ title, myList, onDeleteFromMyList }) => {
   const rowRef = useRef();
 
   const handleClick = (direction) => {
-    let distance = rowRef.current.getBoundingClientRect().x - 50;
+    let distance = rowRef.current.getBoundingClientRect().x - 15;
     let cardWidth = 307;
     let cardPerPage = 1;
     if (direction === 'left' && slideNumber > 0) {

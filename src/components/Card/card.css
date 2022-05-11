@@ -13,10 +13,10 @@
 }
 
 .card-container:hover > .card-image {
-  width: 312px;
-  height: 260px;
-  padding: 0 0 70px 12px;
-  transform: scale(1.08);
+  width: 321px;
+  height: 270px;
+  padding: 0 0 80px 3px;
+  transform: scale(1.02);
 }
 
 .card-container:hover > .card-info {

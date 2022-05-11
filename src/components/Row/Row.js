@@ -23,7 +23,7 @@ const Row = ({ title, fetchUrl, isHighRow, onAddToMyList }) => {
   }, [fetchUrl]);
 
   const handleClick = (direction) => {
-    let distance = rowRef.current.getBoundingClientRect().x - 50;
+    let distance = rowRef.current.getBoundingClientRect().x - 15;
     let cardWidth = 307;
     let cardPerPage = 1;
     if (direction === 'left' && slideNumber > 0) {
@@ -44,7 +44,7 @@ const Row = ({ title, fetchUrl, isHighRow, onAddToMyList }) => {
       <h2 className="title">{title}</h2>
       <div className="wrapper">
         <IoIosArrowBack
-          className="sliderArrow left"
+          className={isHighRow ? 'sliderArrowHigh left' : 'sliderArrow left'}
           onClick={() => handleClick('left')}
           style={{ display: slideNumber === 0 && 'none' }}
         />
@@ -59,7 +59,7 @@ const Row = ({ title, fetchUrl, isHighRow, onAddToMyList }) => {
           ))}
         </div>
         <IoIosArrowForward
-          className="sliderArrow right"
+          className={isHighRow ? 'sliderArrowHigh right' : 'sliderArrow right'}
           onClick={() => handleClick('right')}
           style={{
             display: slideNumber === maxIndexSlider && 'none',

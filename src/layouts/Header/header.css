@@ -300,3 +300,24 @@ header {
     width: 35rem;
   }
 }
+
+@media only screen and (max-width: 500px) {
+  .logo-nav-container {
+    margin: 0 0 0 25px;
+  }
+
+  .profile {
+    margin: 0 25px 0 0;
+  }
+
+  .banner {
+    margin: 0 0 100px 25px;
+  }
+  .banner-title {
+    width: 30rem;
+  }
+
+  .banner-text {
+    width: 30rem;
+  }
+}
