@@ -4,7 +4,7 @@ import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import Card from '../Card/Card';
 import axios from '../../axios';
 
-const Row = ({ title, fetchUrl, isHighRow, onAddToMyList }) => {
+const Row = ({ title, fetchUrl, isHighRow, onAddToMyList, onLike }) => {
   const [movies, setMovies] = useState([]);
   const [slideNumber, setSliderNumber] = useState(0);
   const maxIndexSlider = 14;
@@ -39,6 +39,25 @@ const Row = ({ title, fetchUrl, isHighRow, onAddToMyList }) => {
       setSliderNumber(slideNumber + 1);
     }
   };
+
+  const likedMovie = (movie) => {
+    setMovies(
+      movies.map((m) =>
+        m.id === movie.id ? { ...movie, like: !movie.like, dislike: false } : m
+      )
+    );
+  };
+
+  const dislikedMovie = (movie) => {
+    setMovies(
+      movies.map((m) =>
+        m.id === movie.id
+          ? { ...movie, dislike: !movie.dislike, like: false }
+          : m
+      )
+    );
+  };
+
   return (
     <div className="row">
       <h2 className="title">{title}</h2>
@@ -55,6 +74,8 @@ const Row = ({ title, fetchUrl, isHighRow, onAddToMyList }) => {
               movie={movie}
               isHighRow={isHighRow}
               onAddToMyList={() => onAddToMyList(movie)}
+              onLike={likedMovie}
+              onDislike={dislikedMovie}
             />
           ))}
         </div>

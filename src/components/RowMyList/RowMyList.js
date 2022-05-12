@@ -3,7 +3,13 @@ import './row-my-list.css';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import CardMyList from '../CardMyList/CardMyList';
 
-const RowMyList = ({ title, myList, onDeleteFromMyList }) => {
+const RowMyList = ({
+  title,
+  myList,
+  onDeleteFromMyList,
+  onLike,
+  onDislike,
+}) => {
   const [slideNumber, setSliderNumber] = useState(0);
   const maxIndexSlider = 14;
   const rowRef = useRef();
@@ -41,6 +47,8 @@ const RowMyList = ({ title, myList, onDeleteFromMyList }) => {
               key={movie.id}
               movie={movie}
               onDeleteFromMyList={() => onDeleteFromMyList(movie)}
+              onLike={onLike}
+              onDislike={onDislike}
             />
           ))}
         </div>

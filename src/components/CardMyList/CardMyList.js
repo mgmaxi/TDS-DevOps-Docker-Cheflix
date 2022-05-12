@@ -1,10 +1,15 @@
 import React from 'react';
 import './card-my-list.css';
 import { FaPlayCircle } from 'react-icons/fa';
-import { AiOutlineLike, AiOutlineDislike } from 'react-icons/ai';
+import {
+  AiOutlineLike,
+  AiOutlineDislike,
+  AiFillLike,
+  AiFillDislike,
+} from 'react-icons/ai';
 import { BsCheckCircle } from 'react-icons/bs';
 
-const CardMyList = ({ movie, onDeleteFromMyList }) => {
+const CardMyList = ({ movie, onDeleteFromMyList, onLike, onDislike }) => {
   const baseUrl = 'https://image.tmdb.org/t/p/original';
 
   let movieReleaseDate = new Date(movie.release_date);
@@ -34,8 +39,28 @@ const CardMyList = ({ movie, onDeleteFromMyList }) => {
             </div>
             <div className="specs-icons">
               <FaPlayCircle className="specs-icon" />
-              <AiOutlineLike className="specs-icon" />
-              <AiOutlineDislike className="specs-icon" />
+              {movie.like ? (
+                <AiFillLike
+                  className="specs-icon-bold"
+                  onClick={() => onLike(movie)}
+                />
+              ) : (
+                <AiOutlineLike
+                  className="specs-icon"
+                  onClick={() => onLike(movie)}
+                />
+              )}
+              {movie.dislike ? (
+                <AiFillDislike
+                  className="specs-icon-bold"
+                  onClick={() => onDislike(movie)}
+                />
+              ) : (
+                <AiOutlineDislike
+                  className="specs-icon"
+                  onClick={() => onDislike(movie)}
+                />
+              )}
               <BsCheckCircle
                 className="specs-icon"
                 onClick={() => onDeleteFromMyList(movie)}

@@ -28,6 +28,24 @@ function App() {
     setMyList(myList.filter((m) => m.id !== movie.id));
   };
 
+  const likedMovie = (movie) => {
+    setMyList(
+      myList.map((m) =>
+        m.id === movie.id ? { ...movie, like: !movie.like, dislike: false } : m
+      )
+    );
+  };
+
+  const dislikedMovie = (movie) => {
+    setMyList(
+      myList.map((m) =>
+        m.id === movie.id
+          ? { ...movie, dislike: !movie.dislike, like: false }
+          : m
+      )
+    );
+  };
+
   return (
     <div className="App">
       <Header />
@@ -37,6 +55,8 @@ function App() {
             title={'My List'}
             myList={myList}
             onDeleteFromMyList={deleteFromMyList}
+            onLike={likedMovie}
+            onDislike={dislikedMovie}
           ></RowMyList>
         )}
         <Row
