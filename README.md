@@ -5,6 +5,14 @@
 ## 📄 <b> About the Application </b>
 
 Cheflix is a Netflix clone that fetch data from [The Movie Database](https://www.themoviedb.org)
+Features:
+
+- List of movies
+- Play trailer movies
+- Like/Dislike movies
+- Add movies to your list
+- Remove movies from your list
+- Dynamic header that randomly changes between netflix originals
 
 ## 🛠️ <b> Technologies </b>
 
@@ -20,4 +28,3 @@ Cheflix is a Netflix clone that fetch data from [The Movie Database](https://www
 <p align="center">
 <img src="https://github.com/mgmaxi/cheflix/blob/main/public/preview.png" width="951" height="1098" >
 </p>
-

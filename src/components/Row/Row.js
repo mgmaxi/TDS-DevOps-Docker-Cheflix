@@ -3,12 +3,23 @@ import './row.css';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import Card from '../Card/Card';
 import axios from '../../axios';
+import YouTube from 'react-youtube';
+import movieTrailer from 'movie-trailer';
 
 const Row = ({ title, fetchUrl, isHighRow, onAddToMyList, onLike }) => {
   const [movies, setMovies] = useState([]);
+  const [trailerUrl, setTrailerUrl] = useState('');
   const [slideNumber, setSliderNumber] = useState(0);
   const maxIndexSlider = 14;
   const rowRef = useRef();
+
+  const opts = {
+    height: '390',
+    width: '100%',
+    playerVars: {
+      autoplay: 1,
+    },
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -58,6 +69,25 @@ const Row = ({ title, fetchUrl, isHighRow, onAddToMyList, onLike }) => {
     );
   };
 
+  const playTrailer = (movie) => {
+    if (trailerUrl) {
+      setTrailerUrl('');
+    } else {
+      movieTrailer(
+        movie?.title ||
+          movie?.name ||
+          movie?.original_name ||
+          movie?.original_title ||
+          ''
+      )
+        .then((url) => {
+          const urlParams = new URLSearchParams(new URL(url).search);
+          setTrailerUrl(urlParams.get('v'));
+        })
+        .catch((error) => console.log(error));
+    }
+  };
+
   return (
     <div className="row">
       <h2 className="title">{title}</h2>
@@ -76,6 +106,7 @@ const Row = ({ title, fetchUrl, isHighRow, onAddToMyList, onLike }) => {
               onAddToMyList={() => onAddToMyList(movie)}
               onLike={likedMovie}
               onDislike={dislikedMovie}
+              onPlay={playTrailer}
             />
           ))}
         </div>
@@ -87,6 +118,7 @@ const Row = ({ title, fetchUrl, isHighRow, onAddToMyList, onLike }) => {
           }}
         />
       </div>
+      {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
     </div>
   );
 };

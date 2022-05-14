@@ -9,7 +9,13 @@ import {
 } from 'react-icons/ai';
 import { BsCheckCircle } from 'react-icons/bs';
 
-const CardMyList = ({ movie, onDeleteFromMyList, onLike, onDislike }) => {
+const CardMyList = ({
+  movie,
+  onDeleteFromMyList,
+  onLike,
+  onDislike,
+  onPlay,
+}) => {
   const baseUrl = 'https://image.tmdb.org/t/p/original';
 
   let movieReleaseDate = new Date(movie.release_date);
@@ -21,9 +27,16 @@ const CardMyList = ({ movie, onDeleteFromMyList, onLike, onDislike }) => {
           src={`${baseUrl}${movie.backdrop_path}`}
           alt={movie.title}
           className="card-image"
+          onClick={() => onPlay(movie)}
         />
         <div className="card-info">
-          <div className="movie-title">{movie.title}</div>
+          <div className="movie-title">
+            {' '}
+            {movie?.title ||
+              movie?.name ||
+              movie?.original_name ||
+              movie?.original_title}
+          </div>
           <div className="specs">
             <div className="specs-info">
               <div className="specs-year">{movieReleaseDate.getFullYear()}</div>
@@ -38,7 +51,10 @@ const CardMyList = ({ movie, onDeleteFromMyList, onLike, onDislike }) => {
               </div>
             </div>
             <div className="specs-icons">
-              <FaPlayCircle className="specs-icon" />
+              <FaPlayCircle
+                className="specs-icon"
+                onClick={() => onPlay(movie)}
+              />
               {movie.like ? (
                 <AiFillLike
                   className="specs-icon-bold"

@@ -10,7 +10,14 @@ import {
 import { IoIosAddCircleOutline } from 'react-icons/io';
 import { BsCheckCircle } from 'react-icons/bs';
 
-const Card = ({ movie, isHighRow, onAddToMyList, onLike, onDislike }) => {
+const Card = ({
+  movie,
+  isHighRow,
+  onAddToMyList,
+  onLike,
+  onDislike,
+  onPlay,
+}) => {
   const [isOnMyList, setIsOnMyList] = useState(false);
 
   const baseUrl = 'https://image.tmdb.org/t/p/original';
@@ -33,9 +40,15 @@ const Card = ({ movie, isHighRow, onAddToMyList, onLike, onDislike }) => {
           }`}
           alt={movie.title}
           className={` ${isHighRow ? 'card-image-high' : 'card-image'}`}
+          onClick={() => onPlay(movie)}
         />
         <div className={`${isHighRow ? 'hide' : 'card-info'}`}>
-          <div className="movie-title">{movie.title}</div>
+          <div className="movie-title">
+            {movie?.title ||
+              movie?.name ||
+              movie?.original_name ||
+              movie?.original_title}
+          </div>
           <div className="specs">
             <div className="specs-info">
               <div className="specs-year">{movieReleaseDate.getFullYear()}</div>
@@ -50,7 +63,10 @@ const Card = ({ movie, isHighRow, onAddToMyList, onLike, onDislike }) => {
               </div>
             </div>
             <div className="specs-icons">
-              <FaPlayCircle className="specs-icon" />
+              <FaPlayCircle
+                className="specs-icon"
+                onClick={() => onPlay(movie)}
+              />
               {movie.like ? (
                 <AiFillLike
                   className="specs-icon-bold"
