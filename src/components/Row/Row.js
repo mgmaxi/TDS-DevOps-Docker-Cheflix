@@ -35,7 +35,7 @@ const Row = ({ title, fetchUrl, isHighRow, onAddToMyList, onLike }) => {
 
   const handleClick = (direction) => {
     let distance = rowRef.current.getBoundingClientRect().x - 15;
-    let cardWidth = 307;
+    let cardWidth = 330;
     let cardPerPage = 1;
     if (direction === 'left' && slideNumber > 0) {
       rowRef.current.style.transform = `translateX(${
@@ -99,15 +99,17 @@ const Row = ({ title, fetchUrl, isHighRow, onAddToMyList, onLike }) => {
         />
         <div className="cards-container" ref={rowRef}>
           {movies.map((movie) => (
-            <Card
-              key={movie.id}
-              movie={movie}
-              isHighRow={isHighRow}
-              onAddToMyList={() => onAddToMyList(movie)}
-              onLike={likedMovie}
-              onDislike={dislikedMovie}
-              onPlay={playTrailer}
-            />
+            <div className={isHighRow ? '' : 'card-wrapper'}>
+              <Card
+                key={movie.id}
+                movie={movie}
+                isHighRow={isHighRow}
+                onAddToMyList={() => onAddToMyList(movie)}
+                onLike={likedMovie}
+                onDislike={dislikedMovie}
+                onPlay={playTrailer}
+              />
+            </div>
           ))}
         </div>
         <IoIosArrowForward

@@ -54,3 +54,9 @@
   transform: translate(0px);
   transition: all 1s ease;
 }
+
+.card-wrapper {
+  position: relative;
+  width: 330px;
+  height: 190px;
+}

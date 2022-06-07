@@ -27,7 +27,7 @@ const RowMyList = ({
 
   const handleClick = (direction) => {
     let distance = rowRef.current.getBoundingClientRect().x - 15;
-    let cardWidth = 307;
+    let cardWidth = 330;
     let cardPerPage = 1;
     if (direction === 'left' && slideNumber > 0) {
       rowRef.current.style.transform = `translateX(${
@@ -73,14 +73,16 @@ const RowMyList = ({
         />
         <div className="cards-container" ref={rowRef}>
           {myList.map((movie) => (
-            <CardMyList
-              key={movie.id}
-              movie={movie}
-              onDeleteFromMyList={() => onDeleteFromMyList(movie)}
-              onLike={onLike}
-              onDislike={onDislike}
-              onPlay={playTrailer}
-            />
+            <div className="card-wrapper">
+              <CardMyList
+                key={movie.id}
+                movie={movie}
+                onDeleteFromMyList={() => onDeleteFromMyList(movie)}
+                onLike={onLike}
+                onDislike={onDislike}
+                onPlay={playTrailer}
+              />
+            </div>
           ))}
         </div>
         <IoIosArrowForward

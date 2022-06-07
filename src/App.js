@@ -3,6 +3,7 @@ import './App.css';
 import Header from './layouts/Header/Header.js';
 import Row from './components/Row/Row.js';
 import RowMyList from './components/RowMyList/RowMyList.js';
+import Footer from './layouts/Footer/Footer.js';
 
 import requests from './request';
 
@@ -110,6 +111,7 @@ function App() {
           onAddToMyList={addToMyList}
         ></Row>
       </main>
+      <Footer />
     </div>
   );
 }
