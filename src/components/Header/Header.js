@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './header.css';
-import cheflixLogo from '../../assets/images/logoCheflix.png';
-import avatar from '../../assets/images/avatar.png';
-import { FaBell, FaPlay, FaSearch } from 'react-icons/fa';
+import { FaPlay } from 'react-icons/fa';
 import { FiInfo } from 'react-icons/fi';
 import { MdReplay } from 'react-icons/md';
 import { AiFillCloseCircle } from 'react-icons/ai';
+
+import Navbar from '../Navbar/Navbar';
 
 import axios from '../../axios';
 import requests from '../../request';
@@ -15,7 +15,6 @@ import movieTrailer from 'movie-trailer';
 const Header = () => {
   const [movie, setMovie] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState('');
-  const [showHeader, setShowHeader] = useState();
   const baseUrl = 'https://image.tmdb.org/t/p/original';
 
   let movieReleaseDate = new Date(movie?.first_air_date);
@@ -29,14 +28,6 @@ const Header = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 100) {
-        setShowHeader(true);
-      } else {
-        setShowHeader(false);
-      }
-    });
-
     const fetchData = async () => {
       try {
         const response = await axios.get(requests.fetchNetflixOriginals);
@@ -80,33 +71,6 @@ const Header = () => {
           backgroundPosition: 'center center',
         }}
       >
-        <div className={`header-main ${showHeader && 'header-main-scroll'}`}>
-          <div className="logo-nav-container">
-            <img src={cheflixLogo} alt="Logo" className="logo" />
-            <ul className="navigation">
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/">TV Shows</a>
-              </li>
-              <li>
-                <a href="/">Movies</a>
-              </li>
-              <li>
-                <a href="/">New & Popular</a>
-              </li>
-              <li>
-                <a href="/">My List</a>
-              </li>
-            </ul>
-          </div>
-          <div className="profile">
-            <FaSearch className="search" />
-            <FaBell className="notification" />
-            <img src={avatar} alt="Avatar" />
-          </div>
-        </div>
         <div className="banner">
           <h2 className="banner-title">
             {movie?.title ||
