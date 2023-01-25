@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Router from './router/Router';
 import reportWebVitals from './reportWebVitals';
+import { TmdbApiContextProvider } from './contexts/TmdbApiContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router />
+    <TmdbApiContextProvider>
+      <Router />
+    </TmdbApiContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

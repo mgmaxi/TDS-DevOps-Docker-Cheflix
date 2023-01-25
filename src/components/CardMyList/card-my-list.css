@@ -4,31 +4,12 @@
   transition: all 1s ease;
 }
 
-.card-container:hover {
-  position: absolute;
-  -webkit-box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.07);
-  box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.07);
-  z-index: 99999;
-}
-
-.card-container:hover > .card-image {
-  width: 321px;
-  filter: blur(1.5px);
-  transform: scale(1.08);
-}
-
 .card-container:hover > .card-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   opacity: 1;
-}
-
-.card-container-high:hover > .card-image-high {
-  -webkit-box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.07);
-  box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.07);
-  transform: scale(1.04);
 }
 
 .card-image {
@@ -46,7 +27,6 @@
   min-width: 200px;
   border-radius: 10px;
   object-fit: contain;
-  cursor: pointer;
   transition: all 450ms ease;
 }
 

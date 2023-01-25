@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './Home.css';
+import './home.css';
 import Header from '../../components/Header/Header.js';
 import Row from '../../components/Row/Row.js';
 import RowMyList from '../../components/RowMyList/RowMyList.js';
-import Footer from '../../components/Footer/Footer.js';
-
 import requests from '../../request';
 
 function Home() {

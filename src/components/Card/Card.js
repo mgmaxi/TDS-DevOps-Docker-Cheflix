@@ -6,9 +6,11 @@ import {
   AiOutlineDislike,
   AiFillLike,
   AiFillDislike,
+  AiFillInfoCircle,
 } from 'react-icons/ai';
 import { IoIosAddCircleOutline } from 'react-icons/io';
 import { BsCheckCircle } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 const Card = ({
   movie,
@@ -98,6 +100,13 @@ const Card = ({
                   onClick={addToMyList}
                 />
               )}
+
+              <Link to={'/movies/' + movie.id}>
+                <AiFillInfoCircle
+                  className="specs-icon"
+                  onClick={() => onPlay(movie)}
+                />
+              </Link>
             </div>
           </div>
         </div>
