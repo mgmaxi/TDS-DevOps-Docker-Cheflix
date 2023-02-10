@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import cheflixLogo from '../../assets/images/logoCheflix.png';
 import avatar from '../../assets/images/avatar.png';
 import { FaBell, FaPlay, FaSearch } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [showHeader, setShowHeader] = useState();
@@ -23,7 +24,7 @@ const Navbar = () => {
           <img src={cheflixLogo} alt="Logo" className="logo" />
           <ul className="navigation">
             <li>
-              <a href="/">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
               <a href="/">TV Shows</a>
@@ -40,7 +41,9 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="profile">
-          <FaSearch className="search" />
+          <Link to="/movies">
+            <FaSearch className="search" />
+          </Link>
           <FaBell className="notification" />
           <img src={avatar} alt="Avatar" />
         </div>
