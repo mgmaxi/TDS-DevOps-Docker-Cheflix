@@ -2,21 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { useTmdbApiContext } from '../../contexts/TmdbApiContext';
 import BasicCard from '../../components/BasicCard/BasicCard';
 
-const Movies = () => {
-  const [popularMovies, setPopularMovies] = useState([]);
+const TVShows = () => {
+  const [popularSeries, setPopularSeries] = useState([]);
 
-  const { mostPopularMovies } = useTmdbApiContext();
+  const { mostPopularSeries } = useTmdbApiContext();
 
   useEffect(() => {
-    setPopularMovies(mostPopularMovies);
-  }, [mostPopularMovies]);
+    setPopularSeries(mostPopularSeries);
+  }, [mostPopularSeries]);
 
   return (
     <div className="moviesContainer">
       <ul className="movieCardContainer">
-        {popularMovies.map((movie) => (
+        {popularSeries.map((serie) => (
           <li className="MovieCard">
-            <BasicCard key={movie.id} movie={movie} />
+            <BasicCard key={serie.id} movie={serie} notLink />
           </li>
         ))}
       </ul>
@@ -24,4 +24,4 @@ const Movies = () => {
   );
 };
 
-export default Movies;
+export default TVShows;

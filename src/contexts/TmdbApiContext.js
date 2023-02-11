@@ -11,6 +11,8 @@ export function TmdbApiContextProvider(props) {
   const [seriesTopRated, setSeriesTopRated] = useState([]);
   const [moviesLatest, setMoviesLatest] = useState([]);
   const [seriesLatest, setSeriesLatest] = useState([]);
+  const [mostPopularMovies, setMostPopularMovies] = useState([]);
+  const [mostPopularSeries, setMostPopularSeries] = useState([]);
   const [bestMoviesFrom2022, setBestMoviesFrom2022] = useState([]);
   const [bestSeriesFrom2022, setBestSeriesFrom2022] = useState([]);
   const [popularKidsMovies, setPopularKidsMovies] = useState([]);
@@ -37,6 +39,10 @@ export function TmdbApiContextProvider(props) {
     setMoviesLatest(resMoviesLatest.results);
     const resSeriesLatest = await tmdbApi.getLatest('tv');
     setSeriesLatest(resSeriesLatest.results);
+    const resMostPopularMovies = await tmdbApi.getMostPopular('movie');
+    setMostPopularMovies(resMostPopularMovies.results);
+    const resMostPopularSeries = await tmdbApi.getMostPopular('tv');
+    setMostPopularSeries(resMostPopularSeries.results);
     const resBestMoviesFrom2022 = await tmdbApi.getBestFrom2022('movie');
     setBestMoviesFrom2022(resBestMoviesFrom2022.results);
     const resBestSeriesFrom2022 = await tmdbApi.getBestFrom2022('tv');
@@ -64,6 +70,8 @@ export function TmdbApiContextProvider(props) {
     seriesTopRated,
     moviesLatest,
     seriesLatest,
+    mostPopularMovies,
+    mostPopularSeries,
     bestMoviesFrom2022,
     bestSeriesFrom2022,
     popularKidsMovies,

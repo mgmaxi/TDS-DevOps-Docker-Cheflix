@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import cheflixLogo from '../../assets/images/logoCheflix.png';
 import avatar from '../../assets/images/avatar.png';
-import { FaBell, FaPlay, FaSearch } from 'react-icons/fa';
+import { FaBell, FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
@@ -29,21 +29,21 @@ const Navbar = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="/">TV Shows</a>
+              <Link to="/tv">TV Shows</Link>
             </li>
             <li>
-              <a href="/">Movies</a>
+              <Link to="/movies">Movies</Link>
             </li>
             <li>
-              <a href="/">New & Popular</a>
+              <Link to="/newpopular">New & Popular</Link>
             </li>
             <li>
-              <a href="/">My List</a>
+              <Link to="/mylist">My List</Link>
             </li>
           </ul>
         </div>
         <div className="profile">
-          <Link to="/movies">
+          <Link to="/search">
             <FaSearch className="search" />
           </Link>
           <FaBell className="notification" />

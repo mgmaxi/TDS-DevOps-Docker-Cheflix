@@ -96,6 +96,14 @@ const tmdbApi = {
   // DISCOVER search for movies and TV shows based on filters or definable values like ratings, certifications or release dates.
   // Documentation: https://developers.themoviedb.org/3/discover/movie-discover
 
+  // Get the most popular movies/tv
+
+  getMostPopular: async (classification) => {
+    const url = `/discover/${classification}?sort_by=popularity.desc`;
+    const response = await axios.get(url);
+    return response.data;
+  },
+
   // Get Best From 2022: Get best movies or TV shows from 2022
 
   getBestFrom2022: async (classification) => {
