@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './header.css';
-import { FaPlay } from 'react-icons/fa';
-import { FiInfo } from 'react-icons/fi';
 import { MdReplay } from 'react-icons/md';
-import { AiFillCloseCircle } from 'react-icons/ai';
-
-import Navbar from '../Navbar/Navbar';
+import { ImPlay3 } from 'react-icons/im';
+import { AiFillCloseCircle, AiOutlineInfoCircle } from 'react-icons/ai';
 
 import axios from '../../axios';
 import requests from '../../request';
@@ -95,11 +92,11 @@ const Header = () => {
           <p className="banner-text">{movie?.overview}</p>
           <div className="banner-btn">
             <button className="play-btn" onClick={() => playTrailer(movie)}>
-              <FaPlay />
+              <ImPlay3 style={{ color: '#000' }} />
               <span>Play</span>
             </button>
             <button className="info-btn">
-              <FiInfo />
+              <AiOutlineInfoCircle />
               <span>More info</span>
             </button>
           </div>

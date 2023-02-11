@@ -101,7 +101,7 @@ const Card = ({
                 />
               )}
 
-              <Link to={'/movies/' + movie.id}>
+              <Link to={'/movies/' + movie.id} className="specs-icon-container">
                 <AiFillInfoCircle
                   className="specs-icon"
                   onClick={() => onPlay(movie)}

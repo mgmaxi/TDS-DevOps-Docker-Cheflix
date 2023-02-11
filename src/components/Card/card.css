@@ -110,6 +110,12 @@
   text-shadow: 0 0 2px rgb(0, 0, 0);
 }
 
+.specs-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .specs-icons {
   display: flex;
   justify-content: space-evenly;

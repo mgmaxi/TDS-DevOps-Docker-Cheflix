@@ -21,7 +21,9 @@ const Navbar = () => {
     <div>
       <div className={`header-main ${showHeader && 'header-main-scroll'}`}>
         <div className="logo-nav-container">
-          <img src={cheflixLogo} alt="Logo" className="logo" />
+          <Link to="/">
+            <img src={cheflixLogo} alt="Logo" className="logo" />
+          </Link>
           <ul className="navigation">
             <li>
               <Link to="/">Home</Link>
