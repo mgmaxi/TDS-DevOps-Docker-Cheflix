@@ -60,3 +60,11 @@ input:valid {
 .MovieCard {
   margin: 10px 5px;
 }
+
+/* Media Queries */
+
+@media only screen and (max-width: 680px) {
+  .formsContainer {
+    flex-direction: column;
+  }
+}
