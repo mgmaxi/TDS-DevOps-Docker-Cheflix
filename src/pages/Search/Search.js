@@ -65,8 +65,7 @@ const Search = () => {
             <BasicCard key={movie.id} movie={movie} />
           </li>
         ))}
-
-        {error}
+        <p className="search-error">{error}</p>
       </ul>
     </div>
   );

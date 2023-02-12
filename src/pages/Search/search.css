@@ -1,5 +1,5 @@
 .moviesContainer {
-  min-height: 900px;
+  min-height: 100vh;
   height: 100%;
   width: 100%;
   padding: 150px 0 0 0;
@@ -59,6 +59,10 @@ input:valid {
 
 .MovieCard {
   margin: 10px 5px;
+}
+
+.search-error {
+  color: #fff;
 }
 
 /* Media Queries */
