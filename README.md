@@ -1,3 +1,17 @@
+Ejecución del contenedor
+
+Para ejecutar la aplicación Cheflix dentro de Docker, se deben seguir los siguientes pasos:
+
+Comando para construir la imagen
+docker build -t cheflix .
+
+Comando para ejecutar el contenedor
+docker run -p 8080:80 cheflix
+
+Link para acceder a la app: http://localhost:8080
+
+PROYECTO ORIGINAL:
+
 <p align="center">
 <img src="https://raw.githubusercontent.com/mgmaxi/cheflix/main/src/assets/images/logoCheflix.png" width="270" height="80" >
 </p>
